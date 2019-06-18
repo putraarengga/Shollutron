@@ -13,6 +13,10 @@ void setBoxHeader(int posX, int posY, int height, int width, QWidget *parent)
     button1->setStyleSheet("border: 0px solid black;"  //outline"
                           "color: white; "        //text
                           "font-size: 22px;"
+                          "border-style: solid;"
+                          "border-color: transparent;"
+                          "border-width: 5px;"
+                          "border-radius: 10px;"
                           "background-color: rgba(255, 255, 255, 50);");
 }
 void setLabelHeader( QString text,int posX, int posY, int height, int width, QWidget *parent,int font)
@@ -34,6 +38,10 @@ void setBoxWaktuSholat(int posX, int posY, int height, int width, QWidget *paren
     button1->setStyleSheet("border: 0px solid black;"  //outline"
                           "color: white; "        //text
                           "font-size: 22px;"
+                          "border-style: solid;"
+                          "border-color: transparent;"
+                          "border-width: 5px;"
+                          "border-radius: 10px;"
                           "background-color: rgba(255, 255, 255, 50);");
 }
 void setLabelWaktuSholat( QString text,int posX, int posY, int height, int width, QWidget *parent,int font)
@@ -52,10 +60,14 @@ void setBoxPengumuman(int posX, int posY, int height, int width, QWidget *parent
 
     QPushButton *button1 = new QPushButton( parent);
     button1->setGeometry(static_cast<int> (round(posX)), static_cast<int>(round(posY))  ,  width,  height);
-    button1->setStyleSheet("border: 0px solid black;"  //outline"
+    button1->setStyleSheet("border: 2px solid transparent;"  //outline"
                           "color: white; "        //text
                           "font-size: 22px;"
-                          "background-color: rgba(255, 255, 255, 50);");
+                          "background-color: rgba(255, 255, 255, 50);"
+                           "border-style: solid;"
+                          " border-color: transparent;"
+                           "border-width: 5px;"
+                           "border-radius: 10px;");
 }
 void setLabelPengumuman( QString text,int posX, int posY, int height, int width, QWidget *parent,int font)
 {
