@@ -4,8 +4,9 @@
 #include <QPushButton>
 #include <QScreen>
 #include "math.h"
+#include "myclock.h"
 
-void setBoxHeader(int posX, int posY, int height, int width, QWidget *parent)
+void setBoxHeader(double posX, double posY, double height, double width, QWidget *parent)
 {
 
     QPushButton *button1 = new QPushButton( parent);
@@ -19,7 +20,7 @@ void setBoxHeader(int posX, int posY, int height, int width, QWidget *parent)
                           "border-radius: 10px;"
                           "background-color: rgba(255, 255, 255, 50);");
 }
-void setLabelHeader( QString text,int posX, int posY, int height, int width, QWidget *parent,int font)
+void setLabelHeader( QString text,double posX, double posY, double height, double width, QWidget *parent,int font)
 {
 
     QPushButton *button1 = new QPushButton(text, parent);
@@ -30,7 +31,7 @@ void setLabelHeader( QString text,int posX, int posY, int height, int width, QWi
                           "background-color: rgba(255, 255, 255, 0);");
 }
 
-void setBoxWaktuSholat(int posX, int posY, int height, int width, QWidget *parent)
+void setBoxWaktuSholat(double posX, double posY, double height, double width, QWidget *parent)
 {
 
     QPushButton *button1 = new QPushButton( parent);
@@ -42,9 +43,9 @@ void setBoxWaktuSholat(int posX, int posY, int height, int width, QWidget *paren
                           "border-color: transparent;"
                           "border-width: 5px;"
                           "border-radius: 10px;"
-                          "background-color: rgba(255, 255, 255, 50);");
+                          "background-color: rgba(255, 255, 255, 45);");
 }
-void setLabelWaktuSholat( QString text,int posX, int posY, int height, int width, QWidget *parent,int font)
+void setLabelWaktuSholat( QString text,double posX, double posY, double height, double width, QWidget *parent,int font)
 {
 
     QPushButton *button1 = new QPushButton(text, parent);
@@ -55,7 +56,7 @@ void setLabelWaktuSholat( QString text,int posX, int posY, int height, int width
                           "background-color: rgba(255, 255, 255, 0);");
 }
 
-void setBoxPengumuman(int posX, int posY, int height, int width, QWidget *parent)
+void setBoxPengumuman(double posX, double posY, double height, double width, QWidget *parent)
 {
 
     QPushButton *button1 = new QPushButton( parent);
@@ -63,13 +64,9 @@ void setBoxPengumuman(int posX, int posY, int height, int width, QWidget *parent
     button1->setStyleSheet("border: 2px solid transparent;"  //outline"
                           "color: white; "        //text
                           "font-size: 22px;"
-                          "background-color: rgba(255, 255, 255, 50);"
-                           "border-style: solid;"
-                          " border-color: transparent;"
-                           "border-width: 5px;"
-                           "border-radius: 10px;");
+                          "background-color: rgba(255, 255, 255, 50);");
 }
-void setLabelPengumuman( QString text,int posX, int posY, int height, int width, QWidget *parent,int font)
+void setLabelPengumuman( QString text,double posX, double posY, double height, double width, QWidget *parent,int font)
 {
 
     QPushButton *button1 = new QPushButton(text, parent);
@@ -98,7 +95,7 @@ int main(int argc, char *argv[])
     double posYHeader   = 0;
 
     double widthPrayerTime = width / 6.6659376708583925642427556041553;
-    double heigthPrayerTime = height/9.9960629921259842519685039370079;
+    double heigthPrayerTime = height/9; //9.9960629921259842519685039370079;
 
     double posYPrayerTime = 0;
     double posXPrayerTime = width/83.506849315068493150684931506849;
@@ -126,6 +123,18 @@ int main(int argc, char *argv[])
 
     double widthPengumuman = width ;
     double heigthPengumunan = height - posYPengumuman;
+
+    double posYTime = height / 2.2793897696679629075680526473228;
+    double posXTime = width / 1.3610180843938379102478231748158;
+
+    double widthTime = width / 3.9177377892030848329048843187661;
+    double heightTime = height / 5;
+
+    double posYAcqTime = height / 1.303009575923392612859097127223;
+    double posXAcqTime = width / 1.3610180843938379102478231748158;
+
+    double widthAcqTime = width / 3.9177377892030848329048843187661;
+    double heightAcqTime = height / 9;
 
 //    QPushButton *button1 = new QPushButton("",&w);
 //    button1->setGeometry(static_cast<int> (round(posXbtn)), static_cast<int>(round(posYbtn))  ,  widthBtn,  (height/9.9960629921259842519685039370079));
@@ -183,7 +192,18 @@ int main(int argc, char *argv[])
     setBoxPengumuman(posXPengumunan,posYPengumuman,heigthPengumunan,width,&w);
     setLabelPengumuman("PENGUMUMAN :  SALDO BULAN INI Rp. 1.0000.000",
                        posXIsya,posYPengumuman,heigthPengumunan,width,&w,40);
+\
+    setBoxWaktuSholat(posXTime,posYTime,heightTime ,widthTime,&w);
+    setLabelWaktuSholat("16:40",posXTime,posYTime ,70,widthTime,&w,65);
+    setLabelWaktuSholat("19 Juni 2019",posXTime,posYTime+70,(heightTime-70)/2,widthTime,&w,32);
+    setLabelWaktuSholat("15 Syawal 1440 H",posXTime,posYTime+(70+(heightTime-70)/2) ,(heightTime-70)/2,widthTime,&w,32);
 
+    setBoxWaktuSholat(posXAcqTime,posYAcqTime,heightAcqTime,widthAcqTime,&w);
+    setLabelWaktuSholat("50 Menit Menuju",posXAcqTime,posYAcqTime ,40,widthAcqTime,&w,33);
+    setLabelWaktuSholat("Sholat Maghrib",posXAcqTime,posYAcqTime+40 ,heightAcqTime-40,widthAcqTime,&w,33);
+
+    myclock *clock = new myclock(&w);
+    clock->show();
     w.showFullScreen();
     return a.exec();
 }
