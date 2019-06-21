@@ -10,7 +10,7 @@ class myclock : public QLCDNumber
 
 public:
     myclock(QWidget *parent = 0);
-
+    void setGeom(int x , int y, int width, int height);
 private slots:
     void showTime();
 };

@@ -61,11 +61,11 @@ myclock::myclock(QWidget *parent)
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &myclock::showTime);
     timer->start(1000);
-
+    setStyleSheet("border: 0px solid black;"  //outline"
+                          "color: white; "        //text
+                          "background-color: rgba(255, 255, 255, 0);");
     showTime();
 
-    setWindowTitle(tr("Digital Clock"));
-    resize(150, 60);
 }
 //! [0]
 
@@ -80,3 +80,9 @@ void myclock::showTime()
     display(text);
 }
 //! [2]
+//!
+void myclock::setGeom(int x , int y, int height, int width)
+{
+    setGeometry(x,y,height,width);
+}
+//!

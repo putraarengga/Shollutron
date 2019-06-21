@@ -25,11 +25,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        boxwidget.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        myclock.cpp
 
 HEADERS += \
-        mainwindow.h
+        boxwidget.h \
+        mainwindow.h \
+        myclock.h
 
 FORMS += \
         mainwindow.ui

@@ -136,30 +136,6 @@ int main(int argc, char *argv[])
     double widthAcqTime = width / 3.9177377892030848329048843187661;
     double heightAcqTime = height / 9;
 
-//    QPushButton *button1 = new QPushButton("",&w);
-//    button1->setGeometry(static_cast<int> (round(posXbtn)), static_cast<int>(round(posYbtn))  ,  widthBtn,  (height/9.9960629921259842519685039370079));
-//    button1->setStyleSheet("border: 1px solid black;"  //outline"
-//                          "color: white; "        //text
-//                          "font-size: 22px;"
-//                          "background-color: rgba(255, 255, 255, 50);");
-
-    //    double posY = posYbtn;
-    //    double posX = posXbtn;
-    //    QPushButton *button = new QPushButton("SHUBUH",&w);
-    //    button->setGeometry(static_cast<int> (round(posX)), static_cast<int>(round(posY))  ,  widthBtn, 30);
-    //    button->setStyleSheet("border: 0px solid black;"  //outline"
-    //                          "color: white; "        //text
-    //                          "font-size: 22px;"
-    //                          "background-color: rgba(255, 255, 255, 0);");
-
-    //    double posY2 = (height/5.125841184387617765814266487214)+30;
-    //    double posX2 = posX;
-    //    QPushButton *button2 = new QPushButton("04:00",&w);
-    //    button2->setGeometry(static_cast<int>( round(posX2)), static_cast<int> ( round(posY2))  ,  widthBtn, (height/9.9960629921259842519685039370079) -30);
-    //    button2->setStyleSheet("border: 0px solid black;"  //outline"
-    //                          "color: white; "        //text
-    //                          "font-size: 50px;"
-    //                          "background-color: rgba(255, 255, 255, 0);");
 
     setBoxHeader(posXHeader,posYHeader,heigthHeader,widthHeader,&w);
     setLabelHeader("MASJID NURUL HUDA",posXHeader,posYHeader,60,widthHeader,&w,50);
@@ -191,10 +167,10 @@ int main(int argc, char *argv[])
 
     setBoxPengumuman(posXPengumunan,posYPengumuman,heigthPengumunan,width,&w);
     setLabelPengumuman("PENGUMUMAN :  SALDO BULAN INI Rp. 1.0000.000",
-                       posXIsya,posYPengumuman,heigthPengumunan,width,&w,40);
+                       posXPengumunan,posYPengumuman,heigthPengumunan,width,&w,40);
 \
     setBoxWaktuSholat(posXTime,posYTime,heightTime ,widthTime,&w);
-    setLabelWaktuSholat("16:40",posXTime,posYTime ,70,widthTime,&w,65);
+    //setLabelWaktuSholat("16:40",posXTime,posYTime ,70,widthTime,&w,65);
     setLabelWaktuSholat("19 Juni 2019",posXTime,posYTime+70,(heightTime-70)/2,widthTime,&w,32);
     setLabelWaktuSholat("15 Syawal 1440 H",posXTime,posYTime+(70+(heightTime-70)/2) ,(heightTime-70)/2,widthTime,&w,32);
 
@@ -203,6 +179,7 @@ int main(int argc, char *argv[])
     setLabelWaktuSholat("Sholat Maghrib",posXAcqTime,posYAcqTime+40 ,heightAcqTime-40,widthAcqTime,&w,33);
 
     myclock *clock = new myclock(&w);
+    clock->setGeom(posXTime,posYTime ,widthTime,70);
     clock->show();
     w.showFullScreen();
     return a.exec();
