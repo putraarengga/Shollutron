@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->centralWidget()->setStyleSheet(
                 "#centralWidget { "
                 //" border-image: url(\"C:/Users/ACER-PC/Documents/Shollutron_V1/design/DESIGN SHOLLUTRON 1.jpg\") "
-                " border-image: url(\"D:/titip putra/github/Shollutron/Shollutron_V1/design/interface program.jpg\") "
+                " border-image: url(\"D:/putra/github/Shollutron/Shollutron_V1/design/interface program.jpg\") "
                 "0 0 0 0 stretch stretch;"
                 "}");
 

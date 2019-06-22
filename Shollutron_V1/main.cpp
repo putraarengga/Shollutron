@@ -5,6 +5,8 @@
 #include <QScreen>
 #include "math.h"
 #include "myclock.h"
+#include "runningtext.h"
+#include "promotedisplay.h"
 
 void setBoxHeader(double posX, double posY, double height, double width, QWidget *parent)
 {
@@ -166,8 +168,8 @@ int main(int argc, char *argv[])
     setLabelWaktuSholat("18:50",posXIsya,posYIsya+30,heigthPrayerTime-30,widthPrayerTime,&w,50);
 
     setBoxPengumuman(posXPengumunan,posYPengumuman,heigthPengumunan,width,&w);
-    setLabelPengumuman("PENGUMUMAN :  SALDO BULAN INI Rp. 1.0000.000",
-                       posXPengumunan,posYPengumuman,heigthPengumunan,width,&w,40);
+//    setLabelPengumuman("PENGUMUMAN :  SALDO BULAN INI Rp. 1.0000.000",
+//                       posXPengumunan,posYPengumuman,heigthPengumunan,width,&w,40);
 \
     setBoxWaktuSholat(posXTime,posYTime,heightTime ,widthTime,&w);
     //setLabelWaktuSholat("16:40",posXTime,posYTime ,70,widthTime,&w,65);
@@ -178,10 +180,19 @@ int main(int argc, char *argv[])
     setLabelWaktuSholat("50 Menit Menuju",posXAcqTime,posYAcqTime ,40,widthAcqTime,&w,33);
     setLabelWaktuSholat("Sholat Maghrib",posXAcqTime,posYAcqTime+40 ,heightAcqTime-40,widthAcqTime,&w,33);
 
+
     myclock *clock = new myclock(&w);
     clock->setGeom(posXTime,posYTime ,widthTime,70);
     clock->show();
     w.showFullScreen();
+
+
+    RunningText *runtext = new RunningText(&w);
+    runtext->show();
+
+//    PromoteDisplay *promote = new PromoteDisplay(&w);
+//    promote->show();
+
     return a.exec();
 }
 
