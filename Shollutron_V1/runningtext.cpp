@@ -18,6 +18,7 @@ QWidget(parent)
     double posYPengumuman = screenGeometry.height() / 1.1111597374179431072210065645514;
     mMovingLabel = new QLabel(parent);
     QFont font("times", 40);
+    mMovingLabel->setStyleSheet("QLabel { color : white; }");
     QFontMetrics fm(font);
     int pixelsWide = fm.width("PENGUMUMAN :  SALDO BULAN INI Rp. 1.0000.000");
     mMovingLabel->setText("PENGUMUMAN :  SALDO BULAN INI Rp. 1.0000.000");

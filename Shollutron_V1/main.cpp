@@ -6,7 +6,9 @@
 #include "math.h"
 #include "myclock.h"
 #include "runningtext.h"
-#include "promotedisplay.h"
+#include "QLabel"
+#include "videoplayer.h"
+#include "QStackedLayout"
 
 void setBoxHeader(double posX, double posY, double height, double width, QWidget *parent)
 {
@@ -190,8 +192,19 @@ int main(int argc, char *argv[])
     RunningText *runtext = new RunningText(&w);
     runtext->show();
 
-//    PromoteDisplay *promote = new PromoteDisplay(&w);
-//    promote->show();
+    QLabel *img = new QLabel;
+    img->setPixmap(QPixmap("D:/putra/istriQ.jpg"));
+    img->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    img->showFullScreen();
+
+    VideoPlayer *vpl = new VideoPlayer;
+    vpl->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    vpl->showFullScreen();
+
+    QStackedLayout *stackedLayout = new QStackedLayout;
+    stackedLayout->addWidget(img);
+    stackedLayout->addWidget(vpl);
+
 
     return a.exec();
 }

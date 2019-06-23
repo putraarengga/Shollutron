@@ -5,6 +5,8 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT += multimediawidgets
+QT += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,14 +30,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         myclock.cpp \
-        promotedisplay.cpp \
-        runningtext.cpp
+        runningtext.cpp \
+        videoplayer.cpp
 
 HEADERS += \
         mainwindow.h \
         myclock.h \
-        promotedisplay.h \
-        runningtext.h
+        runningtext.h \
+        videoplayer.h
 
 FORMS += \
         mainwindow.ui
