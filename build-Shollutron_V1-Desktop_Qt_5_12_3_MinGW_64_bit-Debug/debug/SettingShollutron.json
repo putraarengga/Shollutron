@@ -1,0 +1,52 @@
+{
+  "main": {
+	"name" : "Masjid Baitullaah",
+	"address" : "Jl Tambak Medokan Ayu Surabaya",
+	"city"	: "Surabaya",
+	"province" : "Jawa Timur",
+	"country" : "Indonesia",
+	"coord_long" : 0.123345678,
+	"oord_lat" : 12.988765,
+	"elevation" : 0,
+	"time_zone" : 7,
+	"ashar_time" : 1,
+	"konvensi_gd" : 19.5,
+	"konvensi_gn" : 17.5,
+	"time"		: "21:50:45",
+	"date_gregorian" : "17 Mei 2019",
+	"date_hijriah"	: "13 Ramadhan 1440"
+	
+  },
+  "adzan" :{
+	"pray_shubuh" = 0
+	"pray_dzuhur" = 0
+	"pray_ashar" = 0
+	"pray_maghrib" = 0
+	"pray_isya" = 0
+  },
+  "iqomah" :{
+	"pray_shubuh" = 0
+	"pray_dzuhur" = 0
+	"pray_ashar" = 0
+	"pray_maghrib" = 0
+	"pray_isya" = 0
+  },
+  
+  "enable_beep_adzan" = "true",
+  
+  "enable_beep_iqomah" = "true",
+  
+  "moving_text" = "/home/pi/shollutron/announcement.csv",
+  
+  "wallpaper" = "/home/pi/shollutron/wallpaper.csv",
+  
+  "theme " : [
+	"default",
+	"modern",
+	"classic"
+	],
+	
+	
+  
+  
+}
