@@ -18,11 +18,11 @@ int main(int argc, char *argv[])
 
     VideoPlayer *vpl = new VideoPlayer;
     vpl->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    vpl->showFullScreen();
+    vpl->showMaximized();
 
     QStackedLayout *stackedLayout = new QStackedLayout;
-    stackedLayout->addWidget(img);
     stackedLayout->addWidget(vpl);
+    stackedLayout->addWidget(img);
 
 
     return a.exec();

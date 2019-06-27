@@ -95,6 +95,16 @@ MainWindow::MainWindow(QWidget *parent) :
                 "0 0 0 0 stretch stretch;"
                 "}");
 
+    pathBackground[0] = "D:/putra/github/Shollutron/Shollutron_V1/design/DESIGN SHOLLUTRON 1.jpg";
+    pathBackground[1] = "D:/putra/github/Shollutron/Shollutron_V1/design/DESIGN SHOLLUTRON 3.jpg";
+    pathBackground[2] = "D:/putra/github/Shollutron/Shollutron_V1/design/DESIGN SHOLLUTRON 4.jpg";
+    pathBackground[3] = "D:/putra/github/Shollutron/Shollutron_V1/design/DESIGN SHOLLUTRON 5.jpg";
+    pathBackground[4] = "D:/putra/github/Shollutron/Shollutron_V1/design/interface program.jpg";
+
+    tmrBackground = new QTimer(parent);
+    tmrBackground->start(5000);
+    connect(tmrBackground, &QTimer::timeout, this, &MainWindow::changeBackground);
+
 
     QScreen *screen = QGuiApplication::primaryScreen();
     QRect  screenGeometry = screen->geometry();
@@ -150,33 +160,35 @@ MainWindow::MainWindow(QWidget *parent) :
     double heightAcqTime = height / 9;
 
 
+    double heightY = height/26.736842105263157894736842105263;
+
     setBoxHeader(posXHeader,posYHeader,heigthHeader,widthHeader,this);
-    setLabelHeader("MASJID NURUL HUDA",posXHeader,posYHeader,60,widthHeader,this,50);
+    setLabelHeader("MASJID NURUL HUDA",posXHeader,posYHeader,60,widthHeader,this,60);
     setLabelHeader("Jl. Tambak Medokan Ayu Gg 2 Kav 218 Surabaya ",posXHeader,posYHeader+60,heigthHeader -60,widthHeader,this,30);
 
     setBoxWaktuSholat(posXShubuh,posYShubuh,heigthPrayerTime,widthPrayerTime,this);
-    setLabelWaktuSholat("SHUBUH",posXShubuh,posYShubuh,30,widthPrayerTime,this,22);
-    setLabelWaktuSholat("04:00",posXShubuh,posYShubuh+30,heigthPrayerTime -30,widthPrayerTime,this,50);
+    setLabelWaktuSholat("SHUBUH",posXShubuh,posYShubuh+5,heightY,widthPrayerTime,this,25);
+    setLabelWaktuSholat("04:00",posXShubuh,posYShubuh+heightY,heigthPrayerTime -heightY,widthPrayerTime,this,50);
 
     setBoxWaktuSholat(posXTerbit,posYTerbit,heigthPrayerTime,widthPrayerTime,this);
-    setLabelWaktuSholat("TERBIT",posXTerbit,posYTerbit,30,widthPrayerTime,this,22);
-    setLabelWaktuSholat("04:50",posXTerbit,posYTerbit+30,heigthPrayerTime-30,widthPrayerTime,this,50);
+    setLabelWaktuSholat("TERBIT",posXTerbit,posYTerbit+5,heightY,widthPrayerTime,this,25);
+    setLabelWaktuSholat("04:50",posXTerbit,posYTerbit+heightY,heigthPrayerTime-heightY,widthPrayerTime,this,50);
 
     setBoxWaktuSholat(posXDzuhur,posYDzuhur,heigthPrayerTime,widthPrayerTime,this);
-    setLabelWaktuSholat("DZUHUR",posXDzuhur,posYDzuhur,30,widthPrayerTime,this,22);
-    setLabelWaktuSholat("12:00",posXDzuhur,posYDzuhur+30,heigthPrayerTime-30,widthPrayerTime,this,50);
+    setLabelWaktuSholat("DZUHUR",posXDzuhur,posYDzuhur+5,heightY,widthPrayerTime,this,25);
+    setLabelWaktuSholat("12:00",posXDzuhur,posYDzuhur+heightY,heigthPrayerTime-heightY,widthPrayerTime,this,50);
 
     setBoxWaktuSholat(posXAshar,posYAshar,heigthPrayerTime,widthPrayerTime,this);
-    setLabelWaktuSholat("ASHAR",posXAshar,posYAshar,30,widthPrayerTime,this,22);
-    setLabelWaktuSholat("15:50",posXAshar,posYAshar+30,heigthPrayerTime-30,widthPrayerTime,this,50);
+    setLabelWaktuSholat("ASHAR",posXAshar,posYAshar+5,heightY,widthPrayerTime,this,25);
+    setLabelWaktuSholat("15:50",posXAshar,posYAshar+heightY,heigthPrayerTime-heightY,widthPrayerTime,this,50);
 
     setBoxWaktuSholat(posXMaghrib,posYMaghrib,heigthPrayerTime,widthPrayerTime,this);
-    setLabelWaktuSholat("MAGHRIB",posXMaghrib,posYMaghrib,30,widthPrayerTime,this,22);
-    setLabelWaktuSholat("18:00",posXMaghrib,posYMaghrib +30,heigthPrayerTime-30,widthPrayerTime,this,50);
+    setLabelWaktuSholat("MAGHRIB",posXMaghrib,posYMaghrib+5,heightY,widthPrayerTime,this,25);
+    setLabelWaktuSholat("18:00",posXMaghrib,posYMaghrib +heightY,heigthPrayerTime-heightY,widthPrayerTime,this,50);
 
     setBoxWaktuSholat(posXIsya,posYIsya,heigthPrayerTime,widthPrayerTime,this);
-    setLabelWaktuSholat("ISYA",posXIsya,posYIsya ,30,widthPrayerTime,this,22);
-    setLabelWaktuSholat("18:50",posXIsya,posYIsya+30,heigthPrayerTime-30,widthPrayerTime,this,50);
+    setLabelWaktuSholat("ISYA",posXIsya,posYIsya +5,heightY,widthPrayerTime,this,25);
+    setLabelWaktuSholat("18:50",posXIsya,posYIsya+heightY,heigthPrayerTime-heightY,widthPrayerTime,this,50);
 
     setBoxPengumuman(posXPengumunan,posYPengumuman,heigthPengumunan,width,this);
 //    setLabelPengumuman("PENGUMUMAN :  SALDO BULAN INI Rp. 1.0000.000",
@@ -193,10 +205,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     myclock *clock = new myclock(this);
-    clock->setGeom(posXTime,posYTime ,widthTime,70);
+    clock->setGeom(posXTime,posYTime+5 ,widthTime,70);
     clock->show();
-
-
 
     RunningText *runtext = new RunningText(this);
     runtext->show();
@@ -206,4 +216,32 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+
+void MainWindow::AddWidget(QPushButton *boxbackground, QLabel *lblName)
+{
+    boxbackground->setGeometry(static_cast<int> (round(1)), static_cast<int>(round(2))  ,  2,  2);
+    boxbackground->setStyleSheet("border: 0px solid black;"  //outline"
+                          "color: white; "        //text
+                          "font-size: 22px;"
+                          "border-style: solid;"
+                          "border-color: transparent;"
+                          "border-width: 5px;"
+                          "border-radius: 10px;"
+                          "background-color: rgba(255, 255, 255, 50);");
+}
+
+void MainWindow::changeBackground()
+{
+
+    countTmrBackground++;
+    QString tmp = pathBackground[countTmrBackground%5];
+
+    this->centralWidget()->setStyleSheet(
+                "#centralWidget { "
+                //" border-image: url(\"C:/Users/ACER-PC/Documents/Shollutron_V1/design/DESIGN SHOLLUTRON 1.jpg\") "
+                " border-image: url(\""+ tmp +"\") "
+                "0 0 0 0 stretch stretch;"
+                "}");
 }

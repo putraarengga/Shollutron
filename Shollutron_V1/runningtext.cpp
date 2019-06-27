@@ -9,15 +9,13 @@
 RunningText::RunningText(QWidget *parent) :
 QWidget(parent)
 {
-    mStartButton = new QPushButton(this);
-    mStartButton->setText("Start");
 
     QScreen *screen = QGuiApplication::primaryScreen();
     QRect  screenGeometry = screen->geometry();
 
     double posYPengumuman = screenGeometry.height() / 1.1111597374179431072210065645514;
     mMovingLabel = new QLabel(parent);
-    QFont font("times", 40);
+    QFont font("times", 35);
     mMovingLabel->setStyleSheet("QLabel { color : white; }");
     QFontMetrics fm(font);
     int pixelsWide = fm.width("PENGUMUMAN :  SALDO BULAN INI Rp. 1.0000.000");
@@ -34,7 +32,6 @@ QWidget(parent)
     mMoveAnimation->setEndValue( QRect( QPoint(pixelsWide*-1, posYPengumuman), mMovingLabel->size()) );
     mMoveAnimation->start();
 
-   // connect( mStartButton, SIGNAL(clicked()), this, SLOT(startStopAnimaiton()) );
     connect( mMoveAnimation, SIGNAL(finished()), this, SLOT(changeDirection()) );
 
 }
@@ -44,19 +41,6 @@ RunningText::~RunningText()
 
 }
 
-void RunningText::startStopAnimaiton()
-{
-    if( mMoveAnimation->state() == QVariantAnimation::Running)
-    {
-        mMoveAnimation->stop();
-        mStartButton->setText("Start");
-    }
-    else
-    {
-        mMoveAnimation->start();
-        mStartButton->setText("Stop");
-    }
-}
 
 void RunningText::changeDirection()
 {

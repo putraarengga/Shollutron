@@ -16,12 +16,10 @@ class RunningText : public QWidget
     ~RunningText();
 
     public slots:
-    void startStopAnimaiton();
     void changeDirection();
 
     private:
     QLabel* mMovingLabel;
-    QPushButton* mStartButton;
     QPropertyAnimation* mMoveAnimation;
 };
 
