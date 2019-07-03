@@ -30,6 +30,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         myclock.cpp \
+        myconfig.cpp \
         prayerwidget.cpp \
         runningtext.cpp \
         videoplayer.cpp
@@ -37,6 +38,7 @@ SOURCES += \
 HEADERS += \
         mainwindow.h \
         myclock.h \
+        myconfig.h \
         prayerwidget.h \
         runningtext.h \
         videoplayer.h

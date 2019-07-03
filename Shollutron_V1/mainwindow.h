@@ -30,7 +30,7 @@ private:
     Ui::Qlabel *valShubuh,* valShuruq,* valDzuhur,* valAshar,* valMaghrib,* valIsya;
     Ui::QPushButton *boxShubuh, *boxShuruq, *boxDzuhur, *boxAshar, *boxMaghrib, *boxIsya;
     int countTmrBackground=0;
-    QString pathBackground[5];
+    QString pathBackground[6];
 
 };
 

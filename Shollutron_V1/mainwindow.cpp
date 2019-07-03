@@ -8,6 +8,8 @@
 #include "myclock.h"
 #include "runningtext.h"
 #include "QLabel"
+#include "myconfig.h"
+#include <QDebug>
 
 
 void setBoxHeader(double posX, double posY, double height, double width, QWidget *parent)
@@ -95,15 +97,21 @@ MainWindow::MainWindow(QWidget *parent) :
                 "0 0 0 0 stretch stretch;"
                 "}");
 
-    pathBackground[0] = "D:/putra/github/Shollutron/Shollutron_V1/design/DESIGN SHOLLUTRON 1.jpg";
-    pathBackground[1] = "D:/putra/github/Shollutron/Shollutron_V1/design/DESIGN SHOLLUTRON 3.jpg";
-    pathBackground[2] = "D:/putra/github/Shollutron/Shollutron_V1/design/DESIGN SHOLLUTRON 4.jpg";
-    pathBackground[3] = "D:/putra/github/Shollutron/Shollutron_V1/design/DESIGN SHOLLUTRON 5.jpg";
-    pathBackground[4] = "D:/putra/github/Shollutron/Shollutron_V1/design/interface program.jpg";
+    pathBackground[0] = "D:/putra/github/Shollutron/Shollutron_V1/design/Morning-Light.jpg";
+    pathBackground[1] = "D:/putra/github/Shollutron/Shollutron_V1/design/nature-pictures-tumblr-backgrounds-28245756.jpg";
+    pathBackground[2] = "D:/putra/github/Shollutron/Shollutron_V1/design/img1.jpg";
+    pathBackground[3] = "D:/putra/github/Shollutron/Shollutron_V1/design/img2.jpg";
+    pathBackground[4] = "D:/putra/github/Shollutron/Shollutron_V1/design/img3.jpg";
+    pathBackground[5] = "D:/putra/github/Shollutron/Shollutron_V1/design/interface program.jpg";
 
     tmrBackground = new QTimer(parent);
     tmrBackground->start(5000);
     connect(tmrBackground, &QTimer::timeout, this, &MainWindow::changeBackground);
+
+
+
+    MyConfig *myconfigs = new MyConfig();
+    qWarning()<< myconfigs->GetName();
 
 
     QScreen *screen = QGuiApplication::primaryScreen();
@@ -163,7 +171,7 @@ MainWindow::MainWindow(QWidget *parent) :
     double heightY = height/26.736842105263157894736842105263;
 
     setBoxHeader(posXHeader,posYHeader,heigthHeader,widthHeader,this);
-    setLabelHeader("MASJID NURUL HUDA",posXHeader,posYHeader,60,widthHeader,this,60);
+    setLabelHeader(myconfigs->GetName(),posXHeader,posYHeader,60,widthHeader,this,60);
     setLabelHeader("Jl. Tambak Medokan Ayu Gg 2 Kav 218 Surabaya ",posXHeader,posYHeader+60,heigthHeader -60,widthHeader,this,30);
 
     setBoxWaktuSholat(posXShubuh,posYShubuh,heigthPrayerTime,widthPrayerTime,this);
@@ -236,7 +244,7 @@ void MainWindow::changeBackground()
 {
 
     countTmrBackground++;
-    QString tmp = pathBackground[countTmrBackground%5];
+    QString tmp = pathBackground[countTmrBackground%6];
 
     this->centralWidget()->setStyleSheet(
                 "#centralWidget { "

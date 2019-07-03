@@ -11,18 +11,18 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.showFullScreen();
 
-    QLabel *img = new QLabel;
-    img->setPixmap(QPixmap("D:/putra/istriQ.jpg"));
-    img->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    img->showFullScreen();
+//    QLabel *img = new QLabel;
+//    img->setPixmap(QPixmap("D:/putra/istriQ.jpg"));
+//    img->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+//    img->showFullScreen();
 
-    VideoPlayer *vpl = new VideoPlayer;
-    vpl->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    vpl->showMaximized();
+//    VideoPlayer *vpl = new VideoPlayer;
+//    vpl->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+//    vpl->showMaximized();
 
-    QStackedLayout *stackedLayout = new QStackedLayout;
-    stackedLayout->addWidget(vpl);
-    stackedLayout->addWidget(img);
+//    QStackedLayout *stackedLayout = new QStackedLayout;
+//    stackedLayout->addWidget(vpl);
+//    stackedLayout->addWidget(img);
 
 
     return a.exec();
