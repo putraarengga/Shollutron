@@ -97,21 +97,24 @@ MainWindow::MainWindow(QWidget *parent) :
                 "0 0 0 0 stretch stretch;"
                 "}");
 
-    pathBackground[0] = "D:/putra/github/Shollutron/Shollutron_V1/design/Morning-Light.jpg";
-    pathBackground[1] = "D:/putra/github/Shollutron/Shollutron_V1/design/nature-pictures-tumblr-backgrounds-28245756.jpg";
-    pathBackground[2] = "D:/putra/github/Shollutron/Shollutron_V1/design/img1.jpg";
-    pathBackground[3] = "D:/putra/github/Shollutron/Shollutron_V1/design/img2.jpg";
-    pathBackground[4] = "D:/putra/github/Shollutron/Shollutron_V1/design/img3.jpg";
-    pathBackground[5] = "D:/putra/github/Shollutron/Shollutron_V1/design/interface program.jpg";
-
-    tmrBackground = new QTimer(parent);
-    tmrBackground->start(5000);
-    connect(tmrBackground, &QTimer::timeout, this, &MainWindow::changeBackground);
 
 
 
     MyConfig *myconfigs = new MyConfig();
     qWarning()<< myconfigs->GetName();
+
+
+    pathWallpaper = myconfigs->GetWallpaperPath();
+    qWarning()<<pathWallpaper.size();
+//    for (int x = 0;x<pathWallpaper.size();x++) {
+//        pathBackground[x] = pathWallpaper.at(x);
+//    }
+    qWarning()<<pathWallpaper;
+
+
+    tmrBackground = new QTimer(parent);
+    tmrBackground->start(5000);
+    connect(tmrBackground, &QTimer::timeout, this, &MainWindow::changeBackground);
 
 
     QScreen *screen = QGuiApplication::primaryScreen();
@@ -244,7 +247,10 @@ void MainWindow::changeBackground()
 {
 
     countTmrBackground++;
-    QString tmp = pathBackground[countTmrBackground%6];
+    QString tmp = pathWallpaper.at(countTmrBackground% pathWallpaper.size()); //pathBackground[countTmrBackground% pathWallpaper.size()];
+
+
+
 
     this->centralWidget()->setStyleSheet(
                 "#centralWidget { "

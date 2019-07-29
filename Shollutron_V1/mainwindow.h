@@ -31,6 +31,7 @@ private:
     Ui::QPushButton *boxShubuh, *boxShuruq, *boxDzuhur, *boxAshar, *boxMaghrib, *boxIsya;
     int countTmrBackground=0;
     QString pathBackground[6];
+    QStringList pathWallpaper;
 
 };
 

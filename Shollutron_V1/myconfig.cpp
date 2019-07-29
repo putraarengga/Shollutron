@@ -16,9 +16,9 @@ MyConfig::MyConfig(QObject *parent) : QObject(parent)
     qWarning()<<val;
     QJsonDocument d = QJsonDocument::fromJson(val.toUtf8());
     QJsonObject sett2 = d.object();
-
     QJsonObject setting = d.object();
-    QJsonValue valMain = sett2.value((QString("main")));
+
+    QJsonValue valMain = setting.value((QString("main")));
     QJsonObject itemMain = valMain.toObject();
 
     username = itemMain["username"].toString();
@@ -43,59 +43,72 @@ MyConfig::MyConfig(QObject *parent) : QObject(parent)
     moving_text = itemMain["moving_text"].toString();
     wallpaper = itemMain["wallpaper"].toString();
 
-qWarning()<<username<<tr(" ")<<password;
-qWarning()<<name<<tr(" ")<<address<<tr(" ")<<city<<tr(" ")<<province<<tr(" ")<<tr(" ")<<country;
-qWarning()<<coord_lat<<tr(" ")<<coord_long;
-qWarning()<<elevation<<tr(" ")<<timezone<<tr(" ")<<ashartime<<tr(" ");
-qWarning()<<konvensi_gd<<tr(" ")<<konvensi_gn;
-qWarning()<<time<<tr(" ")<<date_gregorian<<tr(" ")<< date_hijriah;
-qWarning()<<enable_beep_adzan<<tr(" ")<<enable_beep_iqomah;
-qWarning()<<moving_text<<tr(" ")<<wallpaper;
+    qWarning()<<username<<tr(" ")<<password;
+    qWarning()<<name<<tr(" ")<<address<<tr(" ")<<city<<tr(" ")<<province<<tr(" ")<<tr(" ")<<country;
+    qWarning()<<coord_lat<<tr(" ")<<coord_long;
+    qWarning()<<elevation<<tr(" ")<<timezone<<tr(" ")<<ashartime<<tr(" ");
+    qWarning()<<konvensi_gd<<tr(" ")<<konvensi_gn;
+    qWarning()<<mytime<<tr(" ")<<date_gregorian<<tr(" ")<< date_hijriah;
+    qWarning()<<enable_beep_adzan<<tr(" ")<<enable_beep_iqomah;
+    qWarning()<<moving_text<<tr(" ")<<wallpaper;
 
 
+    QJsonValue valAdzan = setting.value((QString("adzan")));
+    QJsonObject itemAdzan = valAdzan.toObject();
+    qWarning()<<itemAdzan;
+    adzan[ePray::isya] = itemAdzan["pray_isya"].toInt();
+    adzan[ePray::shubuh] = itemAdzan["pray_shubuh"].toInt();
+    adzan[ePray::syuruq] = itemAdzan["shuruq"].toInt();
+    adzan[ePray::dzuhur] = itemAdzan["pray_dzuhur"].toInt();
+    adzan[ePray::ashar] = itemAdzan["pray_ashar"].toInt();
+    adzan[ePray::maghrib] = itemAdzan["pray_maghrib"].toInt();
+    for (int x = 0;x<=5;x++) {
+        qWarning()<<adzan[x];
+    }
+
+    QJsonValue valIqomah = setting.value((QString("iqomah")));
+    QJsonObject itemIqomah = valIqomah.toObject();
+    qWarning()<<itemIqomah;
+    iqomah[isya] = itemIqomah["pray_isya"].toInt();
+    iqomah[shubuh] = itemIqomah["pray_shubuh"].toInt();
+    iqomah[syuruq] = itemIqomah["shuruq"].toInt();
+    iqomah[dzuhur] = itemIqomah["pray_dzuhur"].toInt();
+    iqomah[ashar] = itemIqomah["pray_ashar"].toInt();
+    iqomah[maghrib] = itemIqomah["pray_maghrib"].toInt();
+    for (unsigned int x = 0;x<=5;x++) {
+        qWarning()<<iqomah[x];
+    }
 
 
+    QJsonValue valTheme= setting.value((QString("theme")));
+    QJsonArray itemTheme = valTheme.toArray();
+    qWarning()<<itemTheme;
+    theme[0] = itemTheme[0].toString();
+    theme[1] = itemTheme[1].toString();
+    theme[2] = itemTheme[2].toString();
+    for (unsigned int x = 0;x<=2;x++) {
+        qWarning()<<theme[x];
+    }
 
+    QFile csvfile("D:/putra/github/Shollutron/build-Shollutron_V1-Desktop_Qt_5_12_3_MinGW_64_bit-Debug/wallpapers.csv");
+    if(!csvfile.open(QIODevice::ReadOnly))
+    {
+        qWarning()<<csvfile.errorString();
+    }
 
-
-
-
-    QJsonValue value = sett2.value((QString("main")));
-    qWarning()<<sett2.size()<<tr(" Objects");
-    QJsonObject item = value.toObject();
-    qWarning()<<tr("QJsonObject of main ")<<item.size() <<tr(" = ")<<item;
-
-    qWarning() << tr("QJsonObject[coord_lat] of main : ") <<item["coord_lat"];
-    QJsonValue subobj = item["coord_lat"];
-    qWarning() << subobj.toDouble();
-
-
-    QJsonValue value2 = sett2.value((QString("adzan")));
-    QJsonObject item2 = value2.toObject();
-    qWarning()<<tr("QJsonObject of adzan ")<<item2.size() <<tr(" = ")<<item2;
-
-    qWarning() << tr("QJsonObject[pray_ashar] of adzan : ") <<item2["pray_ashar"];
-    QJsonValue subobj2 = item2["pray_ashar"];
-    qWarning() << subobj2.toInt();
-
-
-
-    QJsonValue value3 = sett2.value((QString("theme")));
-    QJsonArray item3 = value3.toArray();
-    qWarning()<<tr("QJsonArray of theme")<<item3.size() <<tr(" = ")<<value3;
-
-    qWarning() << tr("QJsonObject[1] of theme : ") <<item3[1];
-    QJsonValue subobj3 = item3[1];
-    qWarning() << subobj3.toString();
-
-//    qWarning() << tr("QJsonObject[appName] of value: ") << item ["imp"];
-//    QJsonArray test = item["imp"].toArray();
-//    qWarning() << test[1].toString();
-
-
-
+    while (!csvfile.atEnd()) {
+        QByteArray line = csvfile.readLine();
+        pathWallpaper.append(line.split(',').first());
+    }
+    qWarning()<<pathWallpaper;
 }
 
 void MyConfig::read(const QJsonObject &json)
 {
+
+}
+void MyConfig::write(QJsonObject &json) const
+{
+
+
 }
